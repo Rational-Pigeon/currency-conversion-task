@@ -117,7 +117,7 @@ h1 {
     width: 100%;
     padding: 10px;
     margin-left: 10px;
-    border: 1px solid #92929c;
+    border: 1px solid #e4dba0;
     border-radius: 4px;
     color: inherit;
 }
@@ -125,11 +125,6 @@ h1 {
 .num-input::placeholder {
     color: #92929c;
     font-weight: 200;
-}
-
-.num-input:focus {
-    outline: none;
-    border: 1px solid #e4dba0;
 }
 
 .flag {
