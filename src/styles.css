@@ -93,7 +93,7 @@ body {
 
 .container {
     background-color: #e2e4df;
-    padding: 20px;
+    padding: 32px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     min-width: 300px;
@@ -112,7 +112,7 @@ h1 {
     gap: 8px;
 }
 
-.currency-input input {
+.num-input {
     font-size: clamp(0.7rem, 0.5vw + 0.6rem, 1rem);
     width: 100%;
     padding: 10px;
@@ -122,12 +122,12 @@ h1 {
     color: inherit;
 }
 
-.currency-input input::placeholder {
+.num-input::placeholder {
     color: #92929c;
     font-weight: 200;
 }
 
-.currency-input input:focus {
+.num-input:focus {
     outline: none;
     border: 1px solid #e4dba0;
 }
@@ -138,6 +138,10 @@ h1 {
     border-radius: 4px;
 }
 
+.custom-rate {
+    width: max-content;
+}
+
 fieldset {
     gap: 16px;
     border-radius: 4px;
@@ -146,4 +150,20 @@ fieldset {
 
 fieldset label {
     font-size: clamp(0.7rem, 0.5vw + 0.6rem, 1rem);
+}
+
+
+.currency-input,
+.custom-rate-input {
+    position: relative;
+    /* This allows positioning the <small> within the container */
+}
+
+.formatted-output {
+    position: absolute;
+    top: 100%;
+    left: 86px;
+    font-size: 0.8rem;
+    color: #92929c;
+    margin-top: 4px;
 }
