@@ -47,3 +47,103 @@ h5,
 h6 {
     overflow-wrap: break-word;
 }
+
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('./fonts/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('./fonts/Vazirmatn-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('./fonts/Vazirmatn-ExtraLight.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 200;
+}
+
+
+body,
+.container,
+.currency-input,
+fieldset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    font-family: 'Vazirmatn', Arial, sans-serif;
+    font-size: clamp(0.75rem, 0.5vw + 0.6rem, 1.1rem);
+    font-weight: 400;
+    background-color: #a8b5ae;
+    height: 100vh;
+    direction: rtl;
+    color: #797575;
+}
+
+
+.container {
+    background-color: #e2e4df;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    min-width: 300px;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: clamp(0.9rem, 1vw + 0.8rem, 1.3rem);
+}
+
+.currency-input {
+    margin-bottom: 12px;
+    text-wrap: nowrap;
+    gap: 8px;
+}
+
+.currency-input input {
+    font-size: clamp(0.7rem, 0.5vw + 0.6rem, 1rem);
+    width: 100%;
+    padding: 10px;
+    margin-left: 10px;
+    border: 1px solid #92929c;
+    border-radius: 4px;
+    color: inherit;
+}
+
+.currency-input input::placeholder {
+    color: #92929c;
+    font-weight: 200;
+}
+
+.currency-input input:focus {
+    outline: none;
+    border: 1px solid #e4dba0;
+}
+
+.flag {
+    width: 64px;
+    height: auto;
+    border-radius: 4px;
+}
+
+fieldset {
+    gap: 16px;
+    border-radius: 4px;
+    border: 1px solid #a8b5ae;
+}
+
+fieldset label {
+    font-size: clamp(0.7rem, 0.5vw + 0.6rem, 1rem);
+}
