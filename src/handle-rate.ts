@@ -4,7 +4,7 @@ import { validateInput } from "./validate";
 const apiRateRadio = document.getElementById("api-rate") as HTMLInputElement;
 const customRateRadio = document.getElementById("custom") as HTMLInputElement;
 const container = document.querySelector(".container") as HTMLElement;
-let customRateInput: HTMLInputElement | null = null;
+let rateInputContainer: HTMLElement | null = null;
 
 export let exchangeRate: number = 600000.0; //default value before fetching or manual setting
 
@@ -28,10 +28,10 @@ async function fetchExchangeRate(retryCount = 3) {
 export function handleRateChange() {
     if (customRateRadio.checked) {
         // Append custom rate input if not already present and update exchange rate based on the input
-        if (!customRateInput) {
-            const rateInputContainer = document.createElement("div");
+        if (!rateInputContainer) {
+            rateInputContainer = document.createElement("div");
             const rateFormattedDisplay = document.createElement("small");
-            customRateInput = document.createElement("input");
+            const customRateInput = document.createElement("input");
 
             rateInputContainer.classList.add("custom-rate-input");
             rateFormattedDisplay.classList.add("formatted-output");
@@ -45,15 +45,15 @@ export function handleRateChange() {
             container.appendChild(rateInputContainer);
 
             customRateInput.addEventListener("input", () => {
-                validateInput(customRateInput!);
-                exchangeRate = parseFloat(customRateInput!.value) || 0;
-                rateFormattedDisplay.textContent = formatNumberWithCommas(customRateInput!.value) || "0";
+                validateInput(customRateInput);
+                exchangeRate = parseFloat(customRateInput.value);
+                rateFormattedDisplay.textContent = formatNumberWithCommas(customRateInput.value);
             });
         }
     } else {
-        if (customRateInput) {
-            container.removeChild(customRateInput);
-            customRateInput = null;
+        if (rateInputContainer) {
+            container.removeChild(rateInputContainer);
+            rateInputContainer = null;
         }
         fetchExchangeRate();
     }
