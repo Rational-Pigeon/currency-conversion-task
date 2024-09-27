@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: "./src/index.ts",
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, "dist"),
@@ -18,6 +18,11 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.ts$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
             },
@@ -26,7 +31,7 @@ module.exports = {
                 loader: "html-loader",
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+                test: /\.(png)$/i,
                 type: "asset/resource",
             },
             {
@@ -38,6 +43,15 @@ module.exports = {
                 }
 
             },
+            {
+                test: /\.(woff2)$/i,
+                type: 'asset/resource',
+            },
+
         ],
     },
+
+    resolve: {
+        extensions: ['.ts', '.js'],
+    }
 };
