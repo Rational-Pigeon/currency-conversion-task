@@ -14,7 +14,7 @@ export function formatNumberWithCommas(value: string): string {
     return formattedValue;
 }
 
-export function displayFormattedCurrencies(rial: string, usd: string) {
+function displayFormattedCurrencies(rial: string, usd: string) {
     const formattedRial = formatNumberWithCommas(rial);
     const formattedValue = formatNumberWithCommas(usd);
 
@@ -28,6 +28,7 @@ export function updateUSD() {
     if (!isNaN(rialValue)) {
         usdInput.value = convertRialToUSD(rialValue, exchangeRate);
     }
+    displayFormattedCurrencies(rialInput.value, usdInput.value);
 }
 
 export function updateRial() {
@@ -35,4 +36,10 @@ export function updateRial() {
     if (!isNaN(usdValue)) {
         rialInput.value = convertUSDToRial(usdValue, exchangeRate);
     }
+    displayFormattedCurrencies(rialInput.value, usdInput.value);
+}
+
+export function clearInputs() {
+    rialInput.value = "";
+    usdInput.value = "";
 }

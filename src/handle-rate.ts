@@ -1,4 +1,4 @@
-import { formatNumberWithCommas } from "./display";
+import { formatNumberWithCommas, clearInputs } from "./display";
 import { validateInput } from "./validate";
 
 const apiRateRadio = document.getElementById("api-rate") as HTMLInputElement;
@@ -57,6 +57,7 @@ export function handleRateChange() {
         }
         fetchExchangeRate();
     }
+    clearInputs();
 }
 
 customRateRadio.addEventListener("change", handleRateChange);
