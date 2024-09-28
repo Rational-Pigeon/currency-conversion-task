@@ -42,4 +42,6 @@ export function updateRial() {
 export function clearInputs() {
     rialInput.value = "";
     usdInput.value = "";
+    rialFormatted.textContent = "";
+    usdFormatted.textContent = "";
 }
